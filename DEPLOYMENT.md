@@ -11,18 +11,17 @@
 ## Remote Server Deployment - CFDynamics Hosting
 
 ### Production Server Details
-- **Server**: `car-cfs05.cfdynamics.com`
-- **Website URL**: `http://calicowoodsigns.com`
-- **Subdomain URL**: `http://emp77.calicowoodsigns.com`
-- **Server IP**: `216.117.4.34`
-- **Remote Path**: `C:\HostingSpaces\calicowo\emp77.calicowoodsigns.com\wwwroot`
+- **Server**: `car-cfs06.cfdynamics.com`
+- **Website URL**: `http://calicoknotts.com`
+- **Server IP**: `216.117.4.35`
+- **Remote Path**: `C:\HostingSpaces\calicokn\calicoknotts.com\wwwroot`
 
 ### FTPS Deployment (Recommended)
-- **Server**: `ftps://car-cfs05.cfdynamics.com` or `ftps://calicowoodsigns.com`
-- **Username**: `calicowo` 
-- **Password**: `1Aaaa`
+- **Server**: `ftps://car-cfs06.cfdynamics.com` or `ftps://calicoknotts.com`
+- **Username**: `calicokn` 
+- **Password**: `09JXC6ASm4PbX8lr`
 - **Port**: 21 (FTPS - Passive mode required)
-- **Path**: `\emp77.calicowoodsigns.com\wwwroot`
+- **Path**: `\calicoknotts.com\wwwroot`
 
 ### Database Configuration
 - **SQL Server 2019**: Available via control panel (up to 10 databases)
@@ -30,7 +29,7 @@
 - **External connections**: Require VPN access (submit support ticket)
 
 ### Email Configuration
-- **SMTP/POP3 Server**: `mail.calicowoodsigns.com`
+- **SMTP/POP3 Server**: `mail.calicoknotts.com`
 - **Server IP**: `216.117.4.25`
 - **WebMail**: Available during DNS propagation
 
@@ -40,11 +39,11 @@
 ```bash
 # Use an FTP client like FileZilla with these settings:
 # Protocol: FTPS (Explicit FTP over TLS)
-# Host: car-cfs05.cfdynamics.com
+# Host: car-cfs06.cfdynamics.com
 # Port: 21
-# Username: calicowo
-# Password: 1Aaaa
-# Remote path: \emp77.calicowoodsigns.com\wwwroot
+# Username: calicokn
+# Password: 09JXC6ASm4PbX8lr
+# Remote path: \calicoknotts.com\wwwroot
 ```
 
 #### Using Git on Remote Server:
@@ -82,7 +81,7 @@ See `deploy/deploy.sh` for automated deployment options.
 ```bash
 # SSH to remote server (if SSH access available)
 ssh calicowo@car-cfs05.cfdynamics.com
-cd C:\HostingSpaces\calicowo\emp77.calicowoodsigns.com\wwwroot
+cd C:\HostingSpaces\calicowo\calico\wwwroot
 git pull origin main
 ```
 
