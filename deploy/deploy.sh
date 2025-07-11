@@ -89,6 +89,17 @@ if [ "$DEPLOY_METHOD" == "rsync" ]; then
         --exclude='cache/' \
         "$TEMP_DIR/" \
         "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH/"
+elif [ "$DEPLOY_METHOD" == "ftps" ]; then
+    # Deploy using FTPS
+    log "Using FTPS deployment to Windows server..."
+    log "Manual FTPS deployment required:"
+    log "  Host: $FTP_HOST"
+    log "  User: $FTP_USER"
+    log "  Port: $FTP_PORT"
+    log "  Path: $FTP_PATH"
+    log "  Files prepared in: $TEMP_DIR"
+    log "Use FileZilla or similar FTPS client with 'Explicit FTP over TLS' and Passive mode"
+    read -p "Press Enter after completing FTPS upload..."
 elif [ "$DEPLOY_METHOD" == "git" ]; then
     # Deploy using git
     ssh "$REMOTE_USER@$REMOTE_HOST" "cd $REMOTE_PATH && git pull origin main"

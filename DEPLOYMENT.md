@@ -5,38 +5,52 @@
 - **Local URL**: `http://localhost:8500/KBFData/`
 
 ## Git Repository
-- **GitHub URL**: `https://github.com/PerfectStormsRich/kbf-data-management.git`
+- **GitHub URL**: `https://github.com/PerfectStormsRich/calicoKnotts.git`
 - **Main Branch**: `main`
 
-## Remote Server Deployment
-To deploy to your remote server, you'll need to configure:
+## Remote Server Deployment - CFDynamics Hosting
 
-### FTP/SFTP Deployment
-1. **Server**: [Your server hostname/IP]
-2. **Username**: [Your FTP username]
-3. **Path**: [Remote directory path]
-4. **Port**: 21 (FTP) or 22 (SFTP)
+### Production Server Details
+- **Server**: `car-cfs05.cfdynamics.com`
+- **Website URL**: `http://calicowoodsigns.com`
+- **Subdomain URL**: `http://emp77.calicowoodsigns.com`
+- **Server IP**: `216.117.4.34`
+- **Remote Path**: `C:\HostingSpaces\calicowo\emp77.calicowoodsigns.com\wwwroot`
 
-### SSH Deployment (Recommended)
-1. **Server**: [Your server hostname/IP]
-2. **Username**: [Your SSH username]
-3. **Key**: [Path to your SSH key]
-4. **Remote Path**: [Remote directory path]
+### FTPS Deployment (Recommended)
+- **Server**: `ftps://car-cfs05.cfdynamics.com` or `ftps://calicowoodsigns.com`
+- **Username**: `calicowo` 
+- **Password**: `1Aaaa`
+- **Port**: 21 (FTPS - Passive mode required)
+- **Path**: `\emp77.calicowoodsigns.com\wwwroot`
+
+### Database Configuration
+- **SQL Server 2019**: Available via control panel (up to 10 databases)
+- **MariaDB**: Available at `mysql02` (up to 10 databases)
+- **External connections**: Require VPN access (submit support ticket)
+
+### Email Configuration
+- **SMTP/POP3 Server**: `mail.calicowoodsigns.com`
+- **Server IP**: `216.117.4.25`
+- **WebMail**: Available during DNS propagation
 
 ### Example Deployment Commands
 
-#### Using rsync (SSH):
+#### Using FTPS (Recommended for Windows hosting):
 ```bash
-rsync -avz --exclude-from='.gitignore' \
-  --exclude '.git/' \
-  --exclude 'deploy/' \
-  ./ username@yourserver.com:/path/to/webroot/KBFData/
+# Use an FTP client like FileZilla with these settings:
+# Protocol: FTPS (Explicit FTP over TLS)
+# Host: car-cfs05.cfdynamics.com
+# Port: 21
+# Username: calicowo
+# Password: 1Aaaa
+# Remote path: \emp77.calicowoodsigns.com\wwwroot
 ```
 
 #### Using Git on Remote Server:
 ```bash
-# On remote server
-git clone https://github.com/PerfectStormsRich/kbf-data-management.git KBFData
+# On remote server (if Git is available)
+git clone https://github.com/PerfectStormsRich/calicoKnotts.git KBFData
 cd KBFData
 git pull origin main
 ```

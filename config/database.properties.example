@@ -1,0 +1,43 @@
+# Database Configuration for CFDynamics Hosting
+# Choose either SQL Server or MariaDB based on your needs
+
+# SQL Server 2019 Configuration
+# ==============================
+# Server: [Will be provided after creating database in control panel]
+# Database: [Your database name]
+# Username: [Your database username]
+# Password: [Your database password]
+# Port: 1433 (default)
+# Connection String Example:
+# jdbc:sqlserver://[server]:1433;databaseName=[database];user=[username];password=[password]
+
+# MariaDB Configuration
+# =====================
+# Server: mysql02
+# Database: [Your database name]
+# Username: [Your database username]
+# Password: [Your database password]
+# Port: 3306 (default)
+# Connection String Example:
+# jdbc:mysql://mysql02:3306/[database]?user=[username]&password=[password]
+
+# ColdFusion Datasource Configuration
+# ===================================
+# 1. Log into ColdFusion Administrator
+# 2. Go to Data & Services > Data Sources
+# 3. Add New Data Source
+# 4. Enter datasource name: KBFData
+# 5. Choose database type (SQL Server or MySQL)
+# 6. Configure connection parameters above
+# 7. Test connection
+# 8. Submit changes
+
+# Database Tables Required
+# ========================
+# - employees
+# - sales_data
+# - user_accounts
+# - system_settings
+
+# Create tables using the SQL scripts in the sql/ directory
+# or through the database management interface in your control panel
