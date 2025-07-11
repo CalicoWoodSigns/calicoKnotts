@@ -137,3 +137,8 @@ yarn-error.log*
 # Package managers
 package-lock.json
 yarn.lock
+
+# Deployment configuration files with sensitive data
+deploy/config/*.env
+deploy/config/staging.env
+deploy/config/production.env
