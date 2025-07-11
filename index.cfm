@@ -46,25 +46,12 @@
                 <cfoutput>
                     <a href="##"
                     id="userDashboardLink"
-                    style="color:##7a4a0c; text-decoration:underline; cursor:pointer;">
+                    style="color:##7a4a0c; text-decoration:underline; cursor:pointer;"
+                    data-access-level="#session.accessLevel#"
+                    data-username="#URLEncodedFormat(session.username)#">
                         #session.username# #session.lastname#
                     </a>
                 </cfoutput>
-                <script>
-                    document.getElementById('userDashboardLink').addEventListener('click', function(e) {
-                        e.preventDefault();
-                        <cfoutput>
-                        var accessLevel = #session.accessLevel#;
-                        </cfoutput>
-                        if (accessLevel >= 2) {
-                            window.location.href = 'admin_dashboard.cfml';
-                        } else {
-                            <cfoutput>
-                            window.location.href = 'employee_dashboard.cfml?searchName=#URLEncodedFormat(session.username)#';
-                            </cfoutput>
-                        }
-                    });
-                </script>
             </cfif>
         </td>
         <td style="text-align:right;">
@@ -245,5 +232,25 @@ style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no">
 </cfif>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var userLink = document.getElementById('userDashboardLink');
+    if (userLink) {
+        userLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            var accessLevel = parseInt(this.getAttribute('data-access-level'));
+            var username = this.getAttribute('data-username');
+            
+            if (accessLevel >= 2) {
+                window.location.href = 'admin_dashboard.cfml';
+            } else {
+                window.location.href = 'employee_dashboard.cfml?searchName=' + username;
+            }
+        });
+    }
+});
+</script>
+
 </body>
 </html>
