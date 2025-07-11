@@ -58,6 +58,42 @@ git pull origin main
 ### Automated Deployment Script
 See `deploy/deploy.sh` for automated deployment options.
 
+## Git-based Sync Workflow (Recommended)
+
+### Development Workflow
+1. **Make changes** to your local files
+2. **Test locally** at `http://localhost:8500/KBFData/`
+3. **Commit and sync** using the sync script:
+   ```bash
+   ./deploy/sync.sh
+   ```
+4. **Deploy to production** using one of the methods below
+
+### Sync Script Features
+- ✅ Commits your changes with version control
+- ✅ Pushes to GitHub automatically
+- ✅ Maintains complete version history
+- ✅ Provides deployment instructions
+- ✅ Shows current version info
+
+### Production Deployment Options
+
+#### Option 1: Git Pull on Remote Server (Best if available)
+```bash
+# SSH to remote server (if SSH access available)
+ssh calicowo@car-cfs05.cfdynamics.com
+cd C:\HostingSpaces\calicowo\emp77.calicowoodsigns.com\wwwroot
+git pull origin main
+```
+
+#### Option 2: Automated FTPS Deployment
+```bash
+./deploy/ftps-deploy.sh
+```
+
+#### Option 3: Manual FTPS Upload
+Use FileZilla with the settings provided above.
+
 ## Environment Configuration
 - Copy `config/config.properties.example` to `config/config.properties`
 - Update database connection strings
