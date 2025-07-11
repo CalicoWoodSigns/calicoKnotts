@@ -7,6 +7,13 @@ body {
     color: #e0e0e0;
 }
 
+/* User Dashboard Link */
+.user-dashboard-link {
+    color: #7a4a0c;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .container {
     width: 100%;
     max-width: 1400px;
@@ -189,6 +196,22 @@ a:hover {
 }
 .logout-btn {
     margin-top: 1.5em;
+}
+
+/* User dashboard link styling */
+.user-dashboard-link {
+    color: #7a4a0c;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user-dashboard-link:hover {
+    color: #5a3509;
+}
+
+/* User name styling */
+.user-name {
+    color: #7a4a0c;
 }
 
 /* Responsive */
