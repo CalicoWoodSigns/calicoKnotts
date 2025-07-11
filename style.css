@@ -1,0 +1,205 @@
+/* General Layout */
+body {
+    background: #23272b;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+input,
+textarea {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1em;
+  color: #e0e0e0;
+  background: #35393d;
+  border: 1.5px solid #888;
+  border-radius: 5px;
+  padding: 0.5em;
+  box-shadow: inset 0 1px 2px #181a1b;
+}
+
+select,
+button {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #b0b6bb;
+    margin-bottom: 0.2em;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-shadow: 1px 2px 0 #181a1b, 0 1px 8px #000;
+}
+
+h2, h3 {
+    color: #b0b6bb;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.03em;
+    text-shadow: 0 1px 4px #181a1b;
+}
+
+a {
+    color: #7ec9e3;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #e3e37e;
+}
+
+/* Summary Table */
+.summary-table {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 2em;
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+}
+
+/* Summary Table */
+.summary-tablea {
+    width: 1400px;
+    text-align: right;
+    margin-bottom: 2em;
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+}
+
+.summary-table td {
+    background: linear-gradient(90deg, #44494e 0%, #23272b 100%);
+    border-radius: 8px;
+    padding: 1em 1.5em;
+    font-size: 1.1em;
+    text-align: right;
+    border: none;
+    color: #e0e0e0;
+    box-shadow: 0 1px 2px #181a1b inset;
+}
+
+.summary-tableLeft td {
+    background: linear-gradient(90deg, #44494e 0%, #23272b 100%);
+    border-radius: 8px;
+    padding: 1em 1.5em;
+    font-size: 1.1em;
+    text-align: left;
+    border: none;
+    color: #e0e0e0;
+    box-shadow: 0 1px 2px #181a1b inset;
+}
+
+/* Leaderboard and Custom Tables */
+.leaderboard-table, .custom-table2, .custom-table {
+    max-width: 1400px;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+    background: #23272b;
+    box-shadow: 0 2px 8px #181a1b inset;
+}
+.leaderboard-table th, .leaderboard-table td,
+.custom-table2 th, .custom-table2 td,
+.custom-table th, .custom-table td {
+    padding: 0.75em 1em;
+    border-bottom: 1px solid #555a60;
+    text-align: left;
+}
+.leaderboard-table th, .custom-table2 th, .custom-table th {
+    background: linear-gradient(90deg, #5a5f65 0%, #35393d 100%);
+    color: #e3e37e;
+    font-weight: 600;
+    border-top: 1.5px solid #888;
+    border-bottom: 2px solid #23272b;
+    text-shadow: 0 1px 2px #181a1b;
+}
+.leaderboard-table td, .custom-table2 td, .custom-table td {
+    color: #e0e0e0;
+}
+
+/* Forms */
+.login-form, .entry-form {
+    background: linear-gradient(135deg, #35393d 0%, #23272b 100%);
+    padding: 1.5em 2em;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 2em auto;
+    box-shadow: 0 2px 8px #181a1b inset;
+    border: 1.5px solid #555a60;
+}
+.login-form label, .entry-form label {
+    display: block;
+    margin-bottom: 0.7em;
+    font-weight: 500;
+    color: #b0b6bb;
+}
+.login-form input, .entry-form input {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.2em;
+    margin-bottom: 1em;
+    border: 1.5px solid #888;
+    border-radius: 5px;
+    font-size: 1em;
+    background: #23272b;
+    color: #e0e0e0;
+    box-shadow: 0 1px 2px #181a1b inset;
+}
+
+/* Buttons */
+.btn, input[type="submit"], button {
+    background: linear-gradient(90deg, #7ec9e3 0%, #4a6a7e 100%);
+    color: #23272b;
+    border: none;
+    padding: 0.7em 2em;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 8px #181a1b inset;
+    transition: background 0.2s, color 0.2s;
+}
+.btn:hover, input[type="submit"]:hover, button:hover {
+    background: linear-gradient(90deg, #e3e37e 0%, #b0b6bb 100%);
+    color: #23272b;
+}
+
+/* Welcome and Messages */
+.welcome {
+    text-align: center;
+    margin-bottom: 2em;
+}
+.success-msg {
+    color: #7ee37e;
+    font-weight: 600;
+    margin-top: 1em;
+}
+.logout-btn {
+    margin-top: 1.5em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container { padding: 1em; }
+    .login-form, .entry-form { padding: 1em; }
+    .leaderboard-table th, .leaderboard-table td,
+    .custom-table2 th, .custom-table2 td,
+    .custom-table th, .custom-table td {
+        padding: 0.5em 0.3em;
+        font-size: 0.95em;
+    }
+}
+

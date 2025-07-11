@@ -1,0 +1,139 @@
+# ColdFusion specific
+*.cfswf
+*.cfc.orig
+*.cfm.orig
+*.cfsql
+*.cfquery
+*.cflog
+*.cflock
+*.cfparam
+*.cfchart
+*.cfgrid
+*.cftree
+*.cfgridupdate
+*.cfinsert
+*.cfupdate
+*.cfdelete
+*.cfmail
+*.cfhttp
+*.cffile
+*.cfdirectory
+*.cfexecute
+*.cfobject
+*.cfmodule
+*.cfinclude
+*.cfwddx
+*.cfxml
+*.cfpop
+*.cfldap
+*.cfcollection
+*.cfindex
+*.cfsearch
+*.cfthread
+*.cfpdf
+*.cfpdfform
+*.cfpdfparam
+*.cfpdfformparam
+*.cfpdfsubform
+*.cfquery.orig
+*.cfm.bak
+*.cfc.bak
+*.cfml.bak
+
+# Logs and debugging
+*.log
+*.log.*
+logs/
+log/
+debug/
+*.debug
+*.trace
+*.error
+*.exception
+*.cfexception
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.~*
+
+# Build and deployment
+/build/
+/dist/
+/target/
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ColdFusion Administrator files
+/CFIDE/administrator/
+/CFIDE/debug/
+/CFIDE/probe/
+/CFIDE/adminapi/
+/CFIDE/componentutils/
+/CFIDE/scripts/ajax/
+/CFIDE/websocket/
+
+# Database files (if using embedded databases)
+*.db
+*.sqlite
+*.mdb
+
+# Configuration files with sensitive data
+config/database.properties
+config/mail.properties
+config/security.properties
+
+# Cache files
+/cache/
+/tmp/
+/temp/
+
+# User uploads (optional - you might want to track these)
+/uploads/
+/files/
+/documents/
+
+# CSV files with sensitive data (uncomment if needed)
+# *.csv
+
+# Environment specific files
+.env
+.env.local
+.env.production
+.env.development
+
+# Node.js (if using any frontend tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package managers
+package-lock.json
+yarn.lock
