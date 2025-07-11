@@ -5,7 +5,7 @@
 - **Local URL**: `http://localhost:8500/KBFData/`
 
 ## Git Repository
-- **GitHub URL**: `https://github.com/PerfectStormsRich/calicoKnotts.git`
+- **GitHub URL**: `https://github.com/CalicoWoodSigns/calicoKnotts.git`
 - **Main Branch**: `main`
 
 ## Remote Server Deployment - CFDynamics Hosting
@@ -50,7 +50,7 @@
 #### Using Git on Remote Server:
 ```bash
 # On remote server (if Git is available)
-git clone https://github.com/PerfectStormsRich/calicoKnotts.git KBFData
+git clone https://github.com/CalicoWoodSigns/calicoKnotts.git KBFData
 cd KBFData
 git pull origin main
 ```
