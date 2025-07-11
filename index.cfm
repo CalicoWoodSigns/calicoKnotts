@@ -21,7 +21,12 @@
 <cfquery name="TotalSalesToday" datasource="#request.datasource#">
     SELECT SUM(AMOUNT) AS Total
     FROM EMPLOYEESALES
-    WHERE CONVERT(date, SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+    WHERE 
+    <cfif request.environment == "local">
+        date(SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+    <cfelse>
+        CONVERT(date, SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+    </cfif>
 </cfquery>
 
 <h1>Welcome to Calico Wood Signs</h1>
@@ -44,18 +49,22 @@
                     style="color:##7a4a0c; text-decoration:underline; cursor:pointer;">
                         #session.username# #session.lastname#
                     </a>
-                    <script>
-                        document.getElementById('userDashboardLink').addEventListener('click', function(e) {
-                            e.preventDefault();
-                            var accessLevel = #session.accessLevel#;
-                            if (accessLevel >= 2) {
-                                window.location.href = 'admin_dashboard.cfml';
-                            } else {
-                                window.location.href = 'employee_dashboard.cfml?searchName=#URLEncodedFormat(session.username)#';
-                            }
-                        });
-                    </script>
                 </cfoutput>
+                <script>
+                    document.getElementById('userDashboardLink').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        <cfoutput>
+                        var accessLevel = #session.accessLevel#;
+                        </cfoutput>
+                        if (accessLevel >= 2) {
+                            window.location.href = 'admin_dashboard.cfml';
+                        } else {
+                            <cfoutput>
+                            window.location.href = 'employee_dashboard.cfml?searchName=#URLEncodedFormat(session.username)#';
+                            </cfoutput>
+                        }
+                    });
+                </script>
             </cfif>
         </td>
         <td style="text-align:right;">
@@ -115,7 +124,12 @@
     SELECT EI.FirstName, EI.LastName, ES.AMOUNT, ES.HOURS
     FROM EMPLOYEESALES ES
     INNER JOIN EMPLOYEEINFO EI ON ES.EID = EI.EID
-    WHERE CONVERT(date, ES.SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+    WHERE 
+    <cfif request.environment == "local">
+        date(ES.SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+    <cfelse>
+        CONVERT(date, ES.SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+    </cfif>
     ORDER BY EI.LastName, EI.FirstName
 </cfquery>
 
@@ -184,7 +198,12 @@ style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no">
         SELECT SALEDATE, AMOUNT, HOURS
         FROM EMPLOYEESALES
         WHERE EID = <cfqueryparam value="#session.eid#" cfsqltype="cf_sql_integer">
-        AND CONVERT(date, SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+        AND 
+        <cfif request.environment == "local">
+            date(SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+        <cfelse>
+            CONVERT(date, SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
+        </cfif>
     </cfquery>
 
     <div class="welcome">
