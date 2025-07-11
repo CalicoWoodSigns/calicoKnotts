@@ -9,7 +9,7 @@
 
 <div class="container">
 <cfif structKeyExists(form, "updateEmployeeInfo")>
-    <cfquery datasource="calicowoodsignsdsn">
+    <cfquery datasource="calicoknottsdsn">
         UPDATE EMPLOYEEINFO
         SET
             USERNAME = <cfqueryparam value="#form.username#" cfsqltype="cf_sql_varchar">,
@@ -30,7 +30,7 @@
 <cfinclude template="navEmp.cfm">
 
 <!-- User Info Horizontal Edit Form -->
-<cfquery name="MyInfo" datasource="calicowoodsignsdsn">
+<cfquery name="MyInfo" datasource="calicoknottsdsn">
     SELECT USERNAME, PASSWORD, FIRSTNAME, LASTNAME, ADDRESS1, ADDRESS2, CITY, STATE, PHONE
     FROM EMPLOYEEINFO
     WHERE FIRSTNAME = <cfqueryparam value="#trim(session.username)#" cfsqltype="cf_sql_varchar">
@@ -164,7 +164,7 @@ function setQuickRange(type) {
 }
 </script>
 
-<cfquery name="FilteredSales" datasource="calicowoodsignsdsn">
+<cfquery name="FilteredSales" datasource="calicoknottsdsn">
     SELECT EMPLOYEEINFO.FIRSTNAME, EMPLOYEEINFO.LASTNAME, EMPLOYEESALES.HOURS, EMPLOYEESALES.AMOUNT, EMPLOYEESALES.SALEDATE
     FROM EMPLOYEESALES
     INNER JOIN EMPLOYEEINFO ON EMPLOYEESALES.EID = EMPLOYEEINFO.EID

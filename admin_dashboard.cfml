@@ -21,14 +21,14 @@
 <cfset pacificNow = dateAdd("h", -2, now())>
 
 <!-- Total Sales Today -->
-<cfquery name="TotalSalesToday" datasource="calicowoodsignsdsn">
+<cfquery name="TotalSalesToday" datasource="calicoknottsdsn">
     SELECT SUM(AMOUNT) AS Total
     FROM EMPLOYEESALES
     WHERE CONVERT(date, SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
 </cfquery>
 
 <!-- Leaderboard: Sales Per Hour (Year-to-date) -->
-<cfquery name="Leaderboard" datasource="calicowoodsignsdsn">
+<cfquery name="Leaderboard" datasource="calicoknottsdsn">
     SELECT 
         EI.USERNAME,
         EI.FIRSTNAME, 
@@ -45,7 +45,7 @@
 </cfquery>
 
 <!-- Sales for Today -->
-<cfquery name="SalesToday" datasource="calicowoodsignsdsn">
+<cfquery name="SalesToday" datasource="calicoknottsdsn">
     SELECT EI.FIRSTNAME, EI.LASTNAME, ES.AMOUNT, ES.HOURS
     FROM EMPLOYEESALES ES
     INNER JOIN EMPLOYEEINFO EI ON ES.EID = EI.EID

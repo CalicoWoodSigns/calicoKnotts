@@ -11,7 +11,7 @@
 
     <h1>Database Tables & Columns</h1>
 
-    <cfquery name="getColumns" datasource="calicowoodsignsdsn">
+    <cfquery name="getColumns" datasource="calicoknottsdsn">
         SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE
         FROM INFORMATION_SCHEMA.COLUMNS
         WHERE TABLE_NAME IN (

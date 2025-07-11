@@ -9,7 +9,7 @@
     <cfinclude template="nav.cfm">
     <h1>Table Data: <cfoutput>#url.table#</cfoutput></h1>
     <cfif structKeyExists(url, "table")>
-        <cfquery name="tableData" datasource="calicowoodsignsdsn">
+        <cfquery name="tableData" datasource="calicoknottsdsn">
             SELECT TOP 25 * FROM #preserveSingleQuotes(url.table)#
         </cfquery>
         <table class="custom-table2">

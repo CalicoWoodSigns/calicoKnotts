@@ -43,7 +43,7 @@
 
     <!-- Handle update -->
     <cfif structKeyExists(form, "update")>
-        <cfquery datasource="calicowoodsignsdsn">
+        <cfquery datasource="calicoknottsdsn">
             UPDATE EMPLOYEESALES
             SET 
                 SALEDATE = <cfqueryparam value="#form.saledate#" cfsqltype="cf_sql_date">,
@@ -59,7 +59,7 @@
 
     <!-- Handle delete -->
     <cfif structKeyExists(form, "delete")>
-        <cfquery datasource="calicowoodsignsdsn">
+        <cfquery datasource="calicoknottsdsn">
             DELETE FROM EMPLOYEESALES
             WHERE SALEID = <cfqueryparam value="#form.saleid#" cfsqltype="cf_sql_integer">
         </cfquery>
@@ -69,7 +69,7 @@
     </cfif>
 
     <!-- Get all sales with filters -->
-    <cfquery name="AllSales" datasource="calicowoodsignsdsn">
+    <cfquery name="AllSales" datasource="calicoknottsdsn">
         SELECT ES.SALEID, ES.EID, ES.SALEDATE, ES.AMOUNT, ES.HOURS, ES.NOTES, EI.FirstName, EI.LastName
         FROM EMPLOYEESALES ES
         INNER JOIN EMPLOYEEINFO EI ON ES.EID = EI.EID
@@ -175,7 +175,7 @@
     <!--- Bulk Update/Delete Handler --->
     <cfif structKeyExists(form, "bulkUpdate") AND isArray(form.selectedRows)>
         <cfloop array="#form.selectedRows#" index="saleid">
-            <cfquery datasource="calicowoodsignsdsn">
+            <cfquery datasource="calicoknottsdsn">
                 UPDATE EMPLOYEESALES
                 SET 
                     SALEDATE = <cfqueryparam value="#form['saledate_' & saleid]#" cfsqltype="cf_sql_date">,
@@ -192,7 +192,7 @@
 
     <cfif structKeyExists(form, "bulkDelete") AND isArray(form.selectedRows)>
         <cfloop array="#form.selectedRows#" index="saleid">
-            <cfquery datasource="calicowoodsignsdsn">
+            <cfquery datasource="calicoknottsdsn">
                 DELETE FROM EMPLOYEESALES
                 WHERE SALEID = <cfqueryparam value="#saleid#" cfsqltype="cf_sql_integer">
             </cfquery>

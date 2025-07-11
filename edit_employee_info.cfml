@@ -12,7 +12,7 @@
 <h2>Edit Employee Information</h2>
 
 <cfif structKeyExists(url, "eid")>
-    <cfquery name="Emp" datasource="calicowoodsignsdsn">
+    <cfquery name="Emp" datasource="calicoknottsdsn">
         SELECT EID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, ADDRESS1, ADDRESS2, CITY, STATE, PHONE, ACCESSLEVEL
         FROM EMPLOYEEINFO
         WHERE EID = <cfqueryparam value="#url.eid#" cfsqltype="cf_sql_integer">
@@ -72,7 +72,7 @@
     <div style="margin-top:1em;"><a href="edit_employee_info.cfml" class="btn">&larr; Back to Employee List</a></div>
     <!-- Handle update -->
     <cfif structKeyExists(form, "updateEmployee")>
-        <cfquery datasource="calicowoodsignsdsn">
+        <cfquery datasource="calicoknottsdsn">
             UPDATE EMPLOYEEINFO
             SET
                 USERNAME = <cfqueryparam value="#form.username#" cfsqltype="cf_sql_varchar">,
@@ -92,7 +92,7 @@
     </cfif>
 <cfelse>
     <!-- List all employees with all columns and edit links -->
-    <cfquery name="AllEmployees" datasource="calicowoodsignsdsn">
+    <cfquery name="AllEmployees" datasource="calicoknottsdsn">
         SELECT EID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, ADDRESS1, ADDRESS2, CITY, STATE, PHONE, ACCESSLEVEL
         FROM EMPLOYEEINFO
         ORDER BY LASTNAME, FIRSTNAME

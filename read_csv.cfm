@@ -35,7 +35,7 @@
         </cfcatch>
         </cftry>
         <cfif len(amount) AND isNumeric(amount) AND len(saleDate) AND len(parsedDate)>
-            <cfquery datasource="calicowoodsignsdsn" username="calicowoDBArich" password="Leslie@0311">
+            <cfquery datasource="calicoknottsdsn" username="calicowoDBArich" password="Leslie@0311">
                 INSERT INTO EmployeeSales (
                     EID,
                     SALEDATE,
@@ -64,7 +64,7 @@
 </cffunction>
 
 <!--- You can run this once, then remove it for safety --->
-<cfquery datasource="calicowoodsignsdsn" username="calicowoDBArich" password="Leslie@0311">
+<cfquery datasource="calicoknottsdsn" username="calicowoDBArich" password="Leslie@0311">
     DELETE FROM EmployeeSales
     WHERE EID = 5
       AND FIRSTNAME = 'Adam'
@@ -92,7 +92,7 @@
     </form>
 
     <!--- Display remaining EmployeeSales rows for Adam, 2024 --->
-    <cfquery name="getSales" datasource="calicowoodsignsdsn" username="calicowoDBArich" password="Leslie@0311">
+    <cfquery name="getSales" datasource="calicoknottsdsn" username="calicowoDBArich" password="Leslie@0311">
         SELECT SALEDATE, AMOUNT, NOTES, HOURS, FIRSTNAME
         FROM EmployeeSales
         WHERE EID = 5
