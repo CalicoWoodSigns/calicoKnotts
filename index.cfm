@@ -1,4 +1,8 @@
 ﻿<cfapplication name="CWSKnottsApp" sessionmanagement="yes">
+
+<!--- Include environment-based database configuration --->
+<cfinclude template="config/database.cfm">
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +18,7 @@
 <cfset budgetAmount = 925>
 <cfset pacificNow = dateAdd("h", -2, now())>
 
-<cfquery name="TotalSalesToday" datasource="calicoknottsdsn">
+<cfquery name="TotalSalesToday" datasource="#request.datasource#">
     SELECT SUM(AMOUNT) AS Total
     FROM EMPLOYEESALES
     WHERE CONVERT(date, SALEDATE) = <cfqueryparam value="#dateFormat(now(), 'yyyy-mm-dd')#" cfsqltype="cf_sql_date">
@@ -74,7 +78,7 @@
 
 <!-- Leaderboard Table -->
 <h2>Leaderboard: Sales Per Hour</h2>
-<cfquery name="Leaderboard" datasource="calicoknottsdsn">
+<cfquery name="Leaderboard" datasource="#request.datasource#">
     SELECT 
         EI.FIRSTNAME,
         EI.LASTNAME,
@@ -107,7 +111,7 @@
 </table>
 
 <!-- Sales for Today Table -->
-<cfquery name="SalesToday" datasource="calicoknottsdsn">
+<cfquery name="SalesToday" datasource="#request.datasource#">
     SELECT EI.FirstName, EI.LastName, ES.AMOUNT, ES.HOURS
     FROM EMPLOYEESALES ES
     INNER JOIN EMPLOYEEINFO EI ON ES.EID = EI.EID
@@ -137,7 +141,7 @@ style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no">
 <!-- LOGIN LOGIC -->
 <cfif NOT structKeyExists(session, "loggedIn") OR NOT session.loggedIn>
     <cfif structKeyExists(form, "username") AND structKeyExists(form, "password")>
-        <cfquery name="CheckUser" datasource="calicoknottsdsn">
+        <cfquery name="CheckUser" datasource="#request.datasource#">
             SELECT EID, FirstName, LastName, ACCESSLEVEL
             FROM EMPLOYEEINFO
             WHERE username = <cfqueryparam value="#form.username#" cfsqltype="cf_sql_varchar">
@@ -163,7 +167,7 @@ style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no">
     <!-- LOGGED-IN USER SECTION -->
     <!-- Handle sales entry form submission -->
     <cfif structKeyExists(form, "addSale")>
-        <cfquery datasource="calicoknottsdsn">
+        <cfquery datasource="#request.datasource#">
             INSERT INTO EMPLOYEESALES (EID, SALEDATE, AMOUNT, HOURS)
             VALUES (
                 <cfqueryparam value="#session.eid#" cfsqltype="cf_sql_integer">,
@@ -176,7 +180,7 @@ style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no">
     </cfif>
 
     <!-- Check if the user already has an entry for today -->
-    <cfquery name="CheckToday" datasource="calicoknottsdsn">
+    <cfquery name="CheckToday" datasource="#request.datasource#">
         SELECT SALEDATE, AMOUNT, HOURS
         FROM EMPLOYEESALES
         WHERE EID = <cfqueryparam value="#session.eid#" cfsqltype="cf_sql_integer">
